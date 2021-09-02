@@ -90,6 +90,7 @@ body {
 #sidebar-wrapper{
   min-height: 100vh !important;
   width: 100vw;
+  padding: 0 !important;
   margin-left: -1rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
@@ -105,4 +106,25 @@ body {
   min-width: 0;
   width: 100%;
   margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.recognition-slider {
+  .carousel{
+    margin-top: 50px;
+  }
+  .carousel-inner{
+    height: 200px;
+  }
+  .carousel-caption{
+    color: black;
+    top: 50%;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+.value-icons {
+  width: 25px;
 }

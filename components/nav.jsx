@@ -9,7 +9,7 @@ const Menu = (props) => {
 
   return (
     <>
-      <Nav className="col-md-12 d-none d-md-block bg-dark sidebar">
+      <Nav className="col-md-12 d-none d-md-block bg-dark sidebar h-100 p-4">
         <div className="sidebar-sticky"></div>
         <Nav.Item>
           <Nav.Link href="/home">
@@ -32,7 +32,11 @@ const Menu = (props) => {
         <Nav.Item>
           <Nav.Link href="/reimbursement">Reimbursement</Nav.Link>
         </Nav.Item>
+        <span className="cntr-footer">
+          © <a href="https://aaghran.com/">Team Jarivs @Hevo</a> - 2021
+        </span>
       </Nav>
+      {/* @TODO - add email and logout */}
     </>
   );
 };

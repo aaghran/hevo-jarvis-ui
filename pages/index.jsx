@@ -15,12 +15,39 @@ import {
 
 import NavBar from "../components/nav";
 import Image from "next/image";
+import Router from "next/router";
 
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      user: "",
+      // rememberMe: false
+    };
   }
+
+  componentDidMount() {
+    let user = localStorage.getItem("user", user);
+    if (user) {
+      Router.push("/home");
+    }
+  }
+
+  handleChange = (event) => {
+    const input = event.target;
+    // const value = input.type === 'checkbox' ? input.checked : input.value;
+
+    this.setState({ user: input.value });
+    console.log(input.value);
+  };
+
+  handleFormSubmit = () => {
+    // debugger;
+    const { user, rememberMe } = this.state;
+    console.log("user ", user);
+    localStorage.setItem("user", user);
+    Router.push("/home");
+  };
   render() {
     return (
       <Fragment>
@@ -58,28 +85,37 @@ export default class Index extends React.Component {
                 variant="top"
                 className="login-logo"
                 src="https://wanderingbong-v2.s3.ap-south-1.amazonaws.com/Jarvis.png"
-                
               />
               <Card.Body>
                 {/* <Card.Title>JARVIS</Card.Title> */}
-                <Form>
+                <Form onSubmit={this.handleFormSubmit}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" required />
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      required
+                      onChange={this.handleChange}
+                    />
                   </Form.Group>
 
                   {/* <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" required  />
                   </Form.Group> */}
-                  <Button
-                      variant="primary"
-                      href="/home"
-                      size="lg"
-                      block
-                    >
-                      Login &rarr;
-                    </Button>
+                  {/* <Button type="submit">Submit</Button> */}
+                  <Button variant="primary" type="submit" size="lg" block>
+                    Login &rarr;
+                  </Button>
+                  {/* <Button
+                    variant="danger"
+                    href="/home"
+                    size="lg"
+                    block
+                    disabled
+                  >
+                    Sign in with Google
+                  </Button> */}
                 </Form>
               </Card.Body>
             </Card>

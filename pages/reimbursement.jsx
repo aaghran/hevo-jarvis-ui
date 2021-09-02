@@ -71,7 +71,7 @@ export default class Recognition extends React.Component {
                     disabled
                     block
                   >
-                    Request a reimbursement
+                    Raise a reimbursement
                   </Button>
                 </Col>
               </Row>
@@ -87,35 +87,12 @@ export default class Recognition extends React.Component {
                     </Card.Body>
                   </Card>
                 </Col>
-                <Col sm="12">
-                  <Tabs
-                    defaultActiveKey="leaderboard"
-                    id="uncontrolled-tab-example"
-                    className="mb-3"
-                  >
-                    <Tab eventKey="leaderboard" title="Leaderboard">
-                      Leaderboard
-                    </Tab>
-                    <Tab eventKey="received" title="Received">
-                      Recieved
-                    </Tab>
-                    <Tab
-                      eventKey="contact"
-                      title="Claim Rewards (Coming Soon)"
-                      disabled
-                    >
-                      Claim Rewards
-                    </Tab>
-                  </Tabs>
-                </Col>
               </Row>
             </Col>
           </Row>
         </Container>
 
-        <footer className="cntr-footer">
-          © <a href="https://aaghran.com/">Team Jarivs @Hevo</a> - 2021
-        </footer>
+        
       </Fragment>
     );
   }

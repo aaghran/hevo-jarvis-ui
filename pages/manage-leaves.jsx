@@ -53,7 +53,7 @@ export default class Leaves extends React.Component {
 
         <Container fluid>
           <Row className="justify-content-md-between">
-            <Col sm="2">
+            <Col sm="2" id="sidebar-wrapper">
               <NavBar />
             </Col>
             <Col sm="10" className="mb-2">
@@ -91,10 +91,6 @@ export default class Leaves extends React.Component {
             </Col>
           </Row>
         </Container>
-
-        <footer className="cntr-footer">
-          © <a href="https://hevodata.com/">Team Jarivs @Hevo</a> - 2021
-        </footer>
       </Fragment>
     );
   }

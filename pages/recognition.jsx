@@ -13,10 +13,19 @@ import {
   Table,
   Tabs,
   Tab,
+  Alert,
 } from "react-bootstrap";
+
+let kudos = [
+  { name: "Aaghran", value: "Build products that users love" },
+  { name: "Tariq", value: "Build products that users love" },
+];
 
 import NavBar from "../components/nav";
 import Image from "next/image";
+import RecognitionTable from "../components/recognitionTable";
+import RecognitionReceived from "../components/recognitionReceived";
+import RecognitionGallery from "../components/recognitionGallery";
 
 export default class Recognition extends React.Component {
   constructor(props) {
@@ -58,11 +67,15 @@ export default class Recognition extends React.Component {
               <NavBar />
             </Col>
             <Col xs={10} id="page-content-wrapper">
-              <Row className="mb-4">
-                <Col sm="8" className="mb-4">
+              <Row className="mb-2">
+                <Col sm="8" className="mb-2">
                   <h1>Rewards & Recognition</h1>
+                  <br />
+                  <Alert>
+                    <h2>"It's very inexpensive to give a compliment."</h2>
+                  </Alert>
                 </Col>
-                <Col sm="4" className="mb-4">
+                <Col sm="4" className="mb-2">
                   {/* @TODO - modal with apply leave */}
                   <Button
                     variant="danger"
@@ -74,60 +87,31 @@ export default class Recognition extends React.Component {
                   </Button>
                 </Col>
               </Row>
-              <Row className="">
-                <Col sm="12" className="mb-4">
-                  <Card>
-                    <Card.Body>
-                      {/* <Card.Title></Card.Title> */}
-                      <Card.Text className="">
-                        <h2>"It's very inexpensive to give a compliment."</h2>
-                        <p>
-                          {/* @TODO - Add our core values with the images here (with a one liner? */}
-                          What are you core values?
-                          <li>
-                            <img src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png" />{" "}
-                            Build Products that users love
-                          </li>
-                          Our Values 
-                          <br />1. Build products that users love.
-                          <br /> 2. Have
-                          audacious goals and a keen desire to achieve them.
-                          <br /> 3.
-                          Aspire to be the best at what you do.
-                          <br /> 4. Be honest
-                          with your work and your teammates.
-                          <br />
-                           5. Have empathy for
-                          your coworkers
-                        </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
               <Row>
+                <RecognitionGallery />
+              </Row>
+              <Row className="">
+                {/* </Row>
+              <Row> */}
                 <Col sm="12">
                   <div className="p-4 bg-white border rounded">
                     <Tabs
-                      defaultActiveKey="leaderboard"
+                      defaultActiveKey="received"
                       id="uncontrolled-tab-example"
                       className=""
                     >
-                      <Tab eventKey="leaderboard" title="Leaderboard">
-                        <Card>
-                          <Card.Body>
-                            <Card.Title>Who's the most recognized!</Card.Title>
-
-                            <Table></Table>
-                          </Card.Body>
-                        </Card>
-                      </Tab>
                       <Tab eventKey="received" title="Received">
                         <Card>
                           <Card.Body>
-                            <Card.Title>Your recognition!</Card.Title>
-
-                            <Table></Table>
+                            <RecognitionReceived type="received" />
+                          </Card.Body>
+                        </Card>
+                      </Tab>
+                      <Tab eventKey="given" title="Given">
+                        <Card>
+                          <Card.Body>
+                            {/* <Card.Title>Who's the most recognized!</Card.Title> */}
+                            <RecognitionReceived type="given" />
                           </Card.Body>
                         </Card>
                       </Tab>
@@ -138,6 +122,76 @@ export default class Recognition extends React.Component {
                       >
                         Claim Rewards
                       </Tab>
+                      <Tab eventKey="about" title="About">
+                        <Card>
+                          <Card.Body>
+                            {/* <Card.Title></Card.Title> */}
+                            <Card.Text className="">
+                              <p>
+                                {/* @TODO - Add our core values with the images here (with a one liner? */}
+                                <h3>Core Values</h3>
+                                <Alert variant="primary">
+                                  <img
+                                    className="value-icons"
+                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png"
+                                  />{" "}
+                                  Build Products that users love
+                                  <br />
+                                  As a product company, our first and foremost
+                                  responsibility is building great products.
+                                </Alert>
+
+                                <Alert variant="info">
+                                  <img
+                                    className="value-icons"
+                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-audacious-goals/71d9ea8cffdaa1aa.png"
+                                  />{" "}
+                                  Have audacious goals and a keen desire to
+                                  achieve them.
+                                  <br />
+                                  Thinking Big and having large goals is the
+                                  first step to achieving them.
+                                </Alert>
+
+                                <Alert variant="warning">
+                                  <img
+                                    className="value-icons"
+                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-the-best-at-what-you-do/75f9baba650c1ab6.png"
+                                  />{" "}
+                                  Aspire to be the best at what you do.
+                                  <br />
+                                  Mediocrity is like gravity; it draws
+                                  everything closer to itself, even the things
+                                  that are not mediocre yet.
+                                </Alert>
+
+                                <Alert variant="danger">
+                                  <img
+                                    className="value-icons"
+                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-honest/aa1300571d27f468.png"
+                                  />{" "}
+                                  Be honest with your work and your teammates.
+                                  <br />
+                                  As we push to achieve greater results, it is
+                                  important to remain honest with ourselves and
+                                  others.
+                                </Alert>
+
+                                <Alert variant="success">
+                                  <img
+                                    className="value-icons"
+                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-empathy/996ec09eb7d0c131.png"
+                                  />{" "}
+                                  Have empathy for your coworkers
+                                  <br />
+                                  In a team sport, winning requires working with
+                                  each other more than beating the opponent.
+                                </Alert>
+                              </p>
+                            </Card.Text>
+                          </Card.Body>
+                        </Card>
+                      </Tab>
                     </Tabs>
                   </div>
                 </Col>
@@ -146,9 +200,6 @@ export default class Recognition extends React.Component {
           </Row>
         </Container>
 
-        <footer className="cntr-footer">
-          © <a href="https://hevodata.com/">Team Jarivs @Hevo</a> - 2021
-        </footer>
       </Fragment>
     );
   }
