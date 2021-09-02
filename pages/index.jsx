@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Fragment } from "react";
-
 import {
   Container,
   Row,
@@ -15,39 +14,12 @@ import {
 
 import NavBar from "../components/nav";
 import Image from "next/image";
-import Router from "next/router";
 
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: "",
-      // rememberMe: false
-    };
+    this.state = {};
   }
-
-  componentDidMount() {
-    let user = localStorage.getItem("user", user);
-    if (user) {
-      Router.push("/home");
-    }
-  }
-
-  handleChange = (event) => {
-    const input = event.target;
-    // const value = input.type === 'checkbox' ? input.checked : input.value;
-
-    this.setState({ user: input.value });
-    console.log(input.value);
-  };
-
-  handleFormSubmit = () => {
-    // debugger;
-    const { user, rememberMe } = this.state;
-    console.log("user ", user);
-    localStorage.setItem("user", user);
-    Router.push("/home");
-  };
   render() {
     return (
       <Fragment>
@@ -78,52 +50,69 @@ export default class Index extends React.Component {
           ></script>
         </Head>
         {/* <NavBar /> */}
-        <Container>
-          <div className="d-flex justify-content-md-center align-items-center vh-100">
-            <Card style={{ width: "50%" }} className="justify-content-center">
-              <Card.Img
-                variant="top"
-                className="login-logo"
-                src="https://wanderingbong-v2.s3.ap-south-1.amazonaws.com/Jarvis.png"
-              />
-              <Card.Body>
-                {/* <Card.Title>JARVIS</Card.Title> */}
-                <Form onSubmit={this.handleFormSubmit}>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Enter email"
-                      required
-                      onChange={this.handleChange}
-                    />
-                  </Form.Group>
 
-                  {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" required  />
-                  </Form.Group> */}
-                  {/* <Button type="submit">Submit</Button> */}
-                  <Button variant="primary" type="submit" size="lg" block>
-                    Login &rarr;
-                  </Button>
-                  {/* <Button
-                    variant="danger"
-                    href="/home"
-                    size="lg"
-                    block
-                    disabled
-                  >
-                    Sign in with Google
-                  </Button> */}
-                </Form>
-              </Card.Body>
-            </Card>
-          </div>
+        <Container fluid>
+          <Row className="justify-content-md-between">
+            <Col sm="2" id="sidebar-wrapper">
+              <NavBar />
+            </Col>
+            <Col sm={10} id="page-content-wrapper">
+              <Col sm="12" className="mb-2">
+                <h1 className="mt-2">Jarvis-Your personal bot</h1>
+                <p>
+                  <br />
+                  Some intro
+                  <br />
+                </p>
+
+                {/* <span>Quick links: </span>
+                <Button variant="outline-primary" href="/leaves" className="ml-2">
+                  Leaves &rarr;
+                </Button> */}
+              </Col>
+              <Row>
+                <Col sm="12" lg="6" className="mt-2">
+                  <Card className="">
+                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3590/premium/3590198.png?token=exp=1630613225~hmac=6d8989e6c1a2fe2a1abb7d7d89a75216" />
+                    <Card.Body>
+                      <Card.Title className="p-2">Take a leave</Card.Title>
+                      <Card.Text className="p-2">
+                        Description..
+                        <br />
+                      </Card.Text>
+                      <Button variant="secondary" href="/leaves" size="lg" block>
+                        Leaves &rarr;
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col sm="12" lg="6" className="mt-2">
+                  <Card className="">
+                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3805/premium/3805300.png?token=exp=1630613160~hmac=2dbc86b40952a39190c50a2177efecc0" />
+                    <Card.Body>
+                      <Card.Title className="p-2">Be rewarded for your contribution to Hevo</Card.Title>
+                      <Card.Text className="p-2">
+                        Description..
+                        <br />
+                      </Card.Text>
+                      <Button
+                        variant="secondary"
+                        href="/recognition"
+                        size="lg"
+                        block
+                      >
+                        Rewards & Recognition &rarr;
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         </Container>
 
         <footer className="cntr-footer">
-          © <a href="http://hevodata.com/">Team Jarivs @Hevo</a> - 2021
+          © <a href="http://hevodata.com/" >Team Jarivs @Hevo</a> - 2021
         </footer>
       </Fragment>
     );
