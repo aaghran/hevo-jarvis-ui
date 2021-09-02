@@ -1,0 +1,108 @@
+@import "override.scss";
+@import "_variables.scss";
+@import "_bootswatch.scss";
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  // background-image: url("https://wanderingbongv1.s3.ap-south-1.amazonaws.com/wb-bg.jpg");
+  background-color: #f5f7fa;
+}
+
+.sml-card {
+  width: 22rem;
+  margin: 1rem 0;
+}
+
+.cntr-footer {
+  height: 80px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ccc;
+}
+
+.sml-logo {
+  height: 1em;
+  margin-left: 10px;
+}
+body {
+  font-size: 1rem;
+}
+
+.react-bootstrap-table table {
+  table-layout: auto;
+}
+
+.social-icons {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  .each-icon {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .social-icons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    z-index: 999999;
+    -webkit-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.close {
+  margin-top: -35px;
+  margin-right: 10px;
+}
+
+.login-logo {
+  height: 40%;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+.sidebar {
+  // position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100vh !important;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  margin: 0 !important;
+}
+#sidebar-wrapper{
+  min-height: 100vh !important;
+  width: 100vw;
+  margin-left: -1rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+  width: 100%;
+  margin-top: 20px;
+}
