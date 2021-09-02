@@ -68,10 +68,10 @@ export default class Index extends React.Component {
                     <Form.Control type="email" placeholder="Enter email" required />
                   </Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                  {/* <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" required  />
-                  </Form.Group>
+                  </Form.Group> */}
                   <Button
                       variant="primary"
                       href="/home"

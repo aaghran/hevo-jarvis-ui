@@ -9,7 +9,7 @@ const Menu = (props) => {
 
   return (
     <>
-      <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
+      <Nav className="col-md-12 d-none d-md-block bg-dark sidebar">
         <div className="sidebar-sticky"></div>
         <Nav.Item>
           <Nav.Link href="/home">

@@ -83,11 +83,22 @@ export default class Recognition extends React.Component {
                         <h2>"It's very inexpensive to give a compliment."</h2>
                         <p>
                           {/* @TODO - Add our core values with the images here (with a one liner? */}
-                          What are you core values
+                          What are you core values?
                           <li>
                             <img src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png" />{" "}
                             Build Products that users love
                           </li>
+                          Our Values 
+                          <br />1. Build products that users love.
+                          <br /> 2. Have
+                          audacious goals and a keen desire to achieve them.
+                          <br /> 3.
+                          Aspire to be the best at what you do.
+                          <br /> 4. Be honest
+                          with your work and your teammates.
+                          <br />
+                           5. Have empathy for
+                          your coworkers
                         </p>
                       </Card.Text>
                     </Card.Body>
