@@ -94,29 +94,31 @@ export default class Leaves extends React.Component {
                   <Table striped bordered hover variant="dark">
                     <thead>
                       <tr>
-                        <th>Date</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>#</th>
+                        
+                        <th>Name</th>
+                        <th>Leave Date</th>
+                        <th>Requested On</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>Aaghran</td>
+                        <td>6th Sept 2021</td>
+                        <td>1st Sept 2021</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>Aaghran</td>
+                        <td>16th Sept 2021</td>
+                        <td>1st Sept 2021</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                        <td colSpan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <td>Aaghran</td>
+                        <td>20th Sept 2021</td>
+                        <td>1st Sept 2021</td>
                       </tr>
                     </tbody>
                   </Table>

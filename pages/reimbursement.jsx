@@ -81,9 +81,7 @@ export default class Recognition extends React.Component {
                     <Card.Body>
                       {/* <Card.Title></Card.Title> */}
                       <Card.Text className="p-2">
-                        <qoute>
-                          It's very inexpensive to give a compliment.
-                        </qoute>
+                        Reimbursement Policy
                         <br />
                       </Card.Text>
                     </Card.Body>

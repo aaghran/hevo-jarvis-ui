@@ -58,11 +58,11 @@ export default class Recognition extends React.Component {
               <NavBar />
             </Col>
             <Col xs={10} id="page-content-wrapper">
-              <Row>
-                <Col sm="8" className="mb-2">
+              <Row className="mb-4">
+                <Col sm="8" className="mb-4">
                   <h1>Rewards & Recognition</h1>
                 </Col>
-                <Col sm="4" className="mb-2">
+                <Col sm="4" className="mb-4">
                   {/* @TODO - modal with apply leave */}
                   <Button
                     variant="danger"
@@ -75,39 +75,60 @@ export default class Recognition extends React.Component {
                 </Col>
               </Row>
               <Row className="">
-                <Col sm="12" className="mb-2">
+                <Col sm="12" className="mb-4">
                   <Card>
                     <Card.Body>
                       {/* <Card.Title></Card.Title> */}
-                      <Card.Text className="p-2">
-                        <qoute>
-                          It's very inexpensive to give a compliment.
-                        </qoute>
-                        <br />
+                      <Card.Text className="">
+                        <h2>"It's very inexpensive to give a compliment."</h2>
+                        <p>
+                          {/* @TODO - Add our core values with the images here (with a one liner? */}
+                          What are you core values
+                          <li>
+                            <img src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png" />{" "}
+                            Build Products that users love
+                          </li>
+                        </p>
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
+              </Row>
+              <Row>
                 <Col sm="12">
-                  <Tabs
-                    defaultActiveKey="leaderboard"
-                    id="uncontrolled-tab-example"
-                    className="mb-3"
-                  >
-                    <Tab eventKey="leaderboard" title="Leaderboard">
-                      Leaderboard
-                    </Tab>
-                    <Tab eventKey="received" title="Received">
-                      Recieved
-                    </Tab>
-                    <Tab
-                      eventKey="contact"
-                      title="Claim Rewards (Coming Soon)"
-                      disabled
+                  <div className="p-4 bg-white border rounded">
+                    <Tabs
+                      defaultActiveKey="leaderboard"
+                      id="uncontrolled-tab-example"
+                      className=""
                     >
-                      Claim Rewards
-                    </Tab>
-                  </Tabs>
+                      <Tab eventKey="leaderboard" title="Leaderboard">
+                        <Card>
+                          <Card.Body>
+                            <Card.Title>Who's the most recognized!</Card.Title>
+
+                            <Table></Table>
+                          </Card.Body>
+                        </Card>
+                      </Tab>
+                      <Tab eventKey="received" title="Received">
+                        <Card>
+                          <Card.Body>
+                            <Card.Title>Your recognition!</Card.Title>
+
+                            <Table></Table>
+                          </Card.Body>
+                        </Card>
+                      </Tab>
+                      <Tab
+                        eventKey="contact"
+                        title="Claim Rewards (Coming Soon)"
+                        disabled
+                      >
+                        Claim Rewards
+                      </Tab>
+                    </Tabs>
+                  </div>
                 </Col>
               </Row>
             </Col>
@@ -115,7 +136,7 @@ export default class Recognition extends React.Component {
         </Container>
 
         <footer className="cntr-footer">
-          © <a href="https://aaghran.com/">Team Jarivs @Hevo</a> - 2021
+          © <a href="https://hevodata.com/">Team Jarivs @Hevo</a> - 2021
         </footer>
       </Fragment>
     );
