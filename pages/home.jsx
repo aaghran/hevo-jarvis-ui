@@ -73,13 +73,14 @@ export default class Index extends React.Component {
               <Row>
                 <Col sm="12" lg="6" className="mt-2">
                   <Card className="">
+                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3590/premium/3590198.png?token=exp=1630613225~hmac=6d8989e6c1a2fe2a1abb7d7d89a75216" />
                     <Card.Body>
-                      <Card.Title></Card.Title>
+                      <Card.Title className="p-2">Take a leave</Card.Title>
                       <Card.Text className="p-2">
-                        Take a leave
+                        Description..
                         <br />
                       </Card.Text>
-                      <Button variant="primary" href="/leaves" size="lg" block>
+                      <Button variant="secondary" href="/leaves" size="lg" block>
                         Leaves &rarr;
                       </Button>
                     </Card.Body>
@@ -87,14 +88,15 @@ export default class Index extends React.Component {
                 </Col>
                 <Col sm="12" lg="6" className="mt-2">
                   <Card className="">
+                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3805/premium/3805300.png?token=exp=1630613160~hmac=2dbc86b40952a39190c50a2177efecc0" />
                     <Card.Body>
-                      <Card.Title></Card.Title>
+                      <Card.Title className="p-2">Be rewarded for your contribution to Hevo</Card.Title>
                       <Card.Text className="p-2">
-                        Be rewarded for your contribution to Hevo
+                        Description..
                         <br />
                       </Card.Text>
                       <Button
-                        variant="primary"
+                        variant="secondary"
                         href="/recognition"
                         size="lg"
                         block
@@ -110,7 +112,7 @@ export default class Index extends React.Component {
         </Container>
 
         <footer className="cntr-footer">
-          © <a href="http://hevodata.com/">Team Jarivs @Hevo</a> - 2021
+          © <a href="http://hevodata.com/" >Team Jarivs @Hevo</a> - 2021
         </footer>
       </Fragment>
     );
