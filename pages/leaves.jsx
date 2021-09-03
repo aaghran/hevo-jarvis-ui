@@ -16,22 +16,37 @@ import {
 import NavBar from "../components/nav";
 import Image from "next/image";
 import LeaveTable from "../components/leaveTable";
-
-const leaves = [
-  {
-    start_date: "1st Sept",
-    end_date: "2nd Sept",
-    applied_on: "30th Aug",
-    email: "aa@aa.com",
-  },
-];
+import HolidayOverlay from "../components/holiday-overlay";
+import { getBreaks } from "../api/data";
+import Router from "next/router";
 
 export default class Leaves extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      leaves: [],
+    };
+  }
+  componentDidMount() {
+    let user = localStorage.getItem("user");
+    if (!user) {
+      Router.push("/");
+    }
+
+    let user_id = user.substring(0, user.lastIndexOf("@"));
+
+    getBreaks(user_id)
+      .then((response) => response.json())
+      .then((leaves) => {
+        this.setState({ leaves });
+        console.log(leaves);
+      });
+    // console.log(kudos_rcvd);
+    // this.setState({ kudos_all, kudos_rcvd, kudos_given });
+    // return { kudos_all, kudos_rcvd, kudos_given };
   }
   render() {
+    let { leaves } = this.state;
     return (
       <Fragment>
         <Head>
@@ -81,35 +96,34 @@ export default class Leaves extends React.Component {
                   <Card className="bg-white">
                     <Card.Body>
                       <Card.Title className="text-dark">
-                        Your Leaves{" "}
+                        Working hard? Take a break!
+                      </Card.Title>
+                      <Card.Text className=" text-dark">
+                        <span>
+                          Let your team know in advance to avoid any confusion
+                          and last-minute hustles.
+                        </span>
+                        <br />
+                        <br />
                         <Button
-                          variant="secondary"
-                          // href="/home"
+                          variant="primary"
+                          href="slack://app?team=T1ZV74Y7N&id=A02CPCMDL02"
                           size="sm"
                           // block
                         >
-                          Apply Leave
+                          Apply on Slack
                         </Button>
-                      </Card.Title>
-                      <Card.Text className="p-2 text-dark">
-                        Looks like you have not taken a leave for a long time!
-                        <br />
-                        Apply one.
-                        <br />
-                        <br />
-                        <LeaveTable leaves={leaves} />
                       </Card.Text>
+                      <LeaveTable leaves={leaves} className="mt-2" />
                     </Card.Body>
                   </Card>
                 </Col>
                 <Col sm="4" className="mb-2">
                   <Card className="bg-light">
                     <Card.Body>
-                      {/* <Card.Title></Card.Title> */}
+                      <Card.Title>Leave Policy</Card.Title>
                       <Card.Text className="p-2">
-                        Leave Policy
-                        <br />
-                        <br />
+                        <HolidayOverlay />
                         <p>
                           Our leave policy assists employees to balance between
                           work & personal engagement. National/Regional
@@ -131,18 +145,8 @@ export default class Leaves extends React.Component {
                           time off - take time off”. We encourage you to take
                           personal time off for your family and friends.
                           <br />
-                          <br />
-                          We encourage our employees to communicate leave plans
-                          with their managers and team members well in advance
-                          to avoid any confusion and last-minute hustles.
                         </p>
                       </Card.Text>
-                      {/* <Col sm="2" className="mb-2 text-right"> */}
-                      {/* @TODO - add holiday list image in modal */}
-                      <a href="">
-                        <h4>Holiday list</h4>
-                      </a>
-                      {/* </Col> */}
                     </Card.Body>
                   </Card>
                 </Col>

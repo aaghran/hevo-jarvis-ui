@@ -15,12 +15,10 @@ body {
 }
 
 .cntr-footer {
-  height: 80px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  // height: 80px;
+  margin: 10px;
 }
 
 .sml-logo {
@@ -85,10 +83,16 @@ body {
   padding: 48px 0 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   margin: 0 !important;
+  background: black !important;
+
+  .nav-item {
+    a {
+      color: white !important;
+    }
+  }
 }
 #sidebar-wrapper {
   min-height: 100vh !important;
-  width: 100vw;
   padding: 0 !important;
   margin-left: -1rem;
   -webkit-transition: margin 0.25s ease-out;
@@ -103,7 +107,6 @@ body {
 
 #page-content-wrapper {
   min-width: 0;
-  width: 100%;
   margin-top: 20px;
   padding-bottom: 20px;
 }
@@ -114,6 +117,11 @@ body {
   }
   .carousel-inner {
     height: 200px;
+    .card {
+      box-shadow: 5px 7px 9px 0px rgba(0, 0, 0, 0.66);
+      -webkit-box-shadow: 5px 7px 9px 0px rgba(0, 0, 0, 0.66);
+      -moz-box-shadow: 5px 7px 9px 0px rgba(0, 0, 0, 0.66);
+    }
   }
   .carousel-caption {
     color: black;
@@ -126,4 +134,34 @@ body {
 
 .value-icons {
   width: 25px !important;
+}
+
+.kudo-card {
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.48);
+  .ml-4 {
+    margin-left: 15px;
+  }
+}
+
+.login-logo {
+  height: 40%;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.img-logo {
+  height: 35%;
+  width: 35%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.holiday-cta {
+  float: right;
+}
+
+.btn-primary {
+  color: white !important;
 }

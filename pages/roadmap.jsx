@@ -60,39 +60,15 @@ export default class Recognition extends React.Component {
             <Col xs={10} id="page-content-wrapper">
               <Row>
                 <Col sm="8" className="mb-2">
-                  <h1>Reimbursement</h1> (Coming Soon)
-                </Col>
-                <Col sm="4" className="mb-2">
-                  {/* @TODO - modal with apply leave */}
-                  <Button
-                    variant="danger"
-                    // href="/home"
-                    size="lg"
-                    disabled
-                    block
-                  >
-                    Raise a reimbursement
-                  </Button>
+                  <h1>Roadmap</h1> (Coming Soon)
                 </Col>
               </Row>
               <Row className="">
-                <Col sm="12" className="mb-2">
-                  <Card>
-                    <Card.Body>
-                      {/* <Card.Title></Card.Title> */}
-                      <Card.Text className="p-2">
-                        Reimbursement Policy
-                        <br />
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+                <Col sm="12" className="mb-2"></Col>
               </Row>
             </Col>
           </Row>
         </Container>
-
-        
       </Fragment>
     );
   }

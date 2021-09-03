@@ -18,24 +18,29 @@ import moment from "moment";
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 
-const { SearchBar } = Search;
-
+// const { SearchBar } = Search;
 
 const columns = [
   {
-    dataField: "email",
-    text: "Name",
+    dataField: "user_name",
+    text: "Your peers on leave",
     sort: true,
     formatter: nameFormatter,
-  }
+  },
+  {
+    dataField: "type",
+    text: "Type",
+    sort: true,
+  },
+  {
+    dataField: "date",
+    text: "Leave date",
+    sort: true,
+  },
 ];
 
 function nameFormatter(cell, row) {
-  return (
-    <>
-      <Badge>{row.email}</Badge>
-    </>
-  );
+  return <>{row.user_name}</>;
 }
 const expandRow = {
   onlyOneExpanding: true,
@@ -57,8 +62,6 @@ class LeaveTable extends React.Component {
     this.state = {
       centers: [],
     };
-
-    
   }
   render() {
     return (
@@ -73,7 +76,7 @@ class LeaveTable extends React.Component {
         >
           {(props) => (
             <div>
-              <SearchBar {...props.searchProps} />
+              {/* <SearchBar {...props.searchProps} /> */}
               <hr />
               <BootstrapTable {...props.baseProps} />
             </div>

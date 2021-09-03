@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import Router from "next/router";
 import {
   Container,
   Row,
@@ -44,10 +43,6 @@ class Recognition extends React.Component {
   }
   componentDidMount() {
     let user = localStorage.getItem("user");
-    if (!user) {
-      Router.push("/");
-    }
-
     let user_id = user.substring(0, user.lastIndexOf("@"));
     getApplauds()
       .then((response) => response.json())
@@ -91,6 +86,15 @@ class Recognition extends React.Component {
           <meta property="twitter:title" content="Jarvis" />
           <meta property="twitter:description" content="" />
           <meta property="twitter:image" content="" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KFXF3TG');`,
+            }}
+          ></script>
         </Head>
         <Container fluid>
           <Row className="justify-content-md-between">
@@ -239,5 +243,6 @@ class Recognition extends React.Component {
     );
   }
 }
+
 
 export default Recognition;

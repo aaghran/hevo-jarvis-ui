@@ -2,24 +2,27 @@ import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import Image from "next/image";
 
+import Router from "next/router";
+
 const Menu = (props) => {
   // const [isOpen, setIsOpen] = useState(false);
 
-  // const toggle = () => setIsOpen(!isOpen);
-
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    Router.push("/");
+  };
   return (
     <>
-      <Nav className="col-md-12 d-none d-md-block bg-dark sidebar h-100 p-4">
+      <Nav className="col-md-12 d-none d-md-block bg-dark sidebar h-100 p-2 pl-4">
         <div className="sidebar-sticky"></div>
-        <Nav.Item>
+        <Nav.Item className="mb-2">
           <Nav.Link href="/home">
             <img
               src="https://wanderingbong-v2.s3.ap-south-1.amazonaws.com/Jarvis.png"
               alt="Logo"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
             />
-            Jarvis
           </Nav.Link>
         </Nav.Item>
 
@@ -30,10 +33,15 @@ const Menu = (props) => {
           <Nav.Link href="/recognition">Rewards & Recognition</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/reimbursement">Reimbursement</Nav.Link>
+          <Nav.Link href="/roadmap">Our Roadmap</Nav.Link>
+        </Nav.Item>
+
+        <hr />
+        <Nav.Item>
+          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav.Item>
         <span className="cntr-footer">
-          © <a href="https://aaghran.com/">Team Jarivs @Hevo</a> - 2021
+          <a href="https://hevodata.com/">© Team Jarvis - 2021</a>
         </span>
       </Nav>
       {/* @TODO - add email and logout */}

@@ -15,37 +15,37 @@ let value_icons = {
     "https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-empathy/996ec09eb7d0c131.png",
 };
 
-const KudosElement = ({data}) => {
-    console.log(data);
+const KudosElement = ({ data }) => {
+  // console.log(data);
   return (
-    <Carousel.Item key={data.id}>
-      <Carousel.Caption>
-        <Card className="p-1 mb-2">
-          <Card.Body>
-            <Card.Title>
-              {/* add value icon */}
-              <img
-                className="value-icons"
-                src={value_icons[data.core_value]}
-              />{" "}
-              {data.message}
-            </Card.Title>
-            <p>{data.core_value}</p>
-            <p>
-              <img
-                className="value-icons"
-                src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-              />{" "}
-              By {data.received_by}
-              {/* <span className="text-warning">#jarvis,#integrations</span>{" "} */}
-              <span className="ml-2">
-                <Badge variant="dark">{moment(data.ts).format()}</Badge>
-              </span>{" "}
-            </p>
-          </Card.Body>
-        </Card>
-      </Carousel.Caption>
-    </Carousel.Item>
+    <Card className="p-1 mb-2">
+      <Card.Body>
+        <Card.Title>
+          {/* add value icon */}
+
+          {data.message}
+        </Card.Title>
+        <p>
+          {" "}
+          <img
+            className="value-icons"
+            src={value_icons[data.core_value]}
+          />{" "}
+          {data.core_value}
+        </p>
+        <p>
+          <img
+            className="value-icons"
+            src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+          />{" "}
+          By {data.received_by}
+          {/* <span className="text-warning">#jarvis,#integrations</span>{" "} */}
+          {/* <span className="ml-2">
+            <Badge variant="dark">{moment(data.ts).format()}</Badge>
+          </span>{" "} */}
+        </p>
+      </Card.Body>
+    </Card>
   );
 };
 
@@ -59,9 +59,20 @@ const RecognitionGallery = (props) => {
   let kudos_all = props.kudos;
   return (
     <>
-      <Carousel className="recognition-slider" variant="dark" interval={1000}>
+      <Carousel
+        className="recognition-slider mb-2 p-2"
+        variant="dark"
+        interval={2000}
+        fade
+      >
         {kudos_all.map(function (object, i) {
-          return <KudosElement data={object} />;
+          return (
+            <Carousel.Item>
+              <Carousel.Caption>
+                <KudosElement data={object} key={object.id} />
+              </Carousel.Caption>
+            </Carousel.Item>
+          );
         })}
       </Carousel>
     </>

@@ -15,36 +15,36 @@ let value_icons = {
     "https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-empathy/996ec09eb7d0c131.png",
 };
 
-const KudoEle = ({ data }) => {
+const KudoEle = ({ data, type }) => {
   return (
-    <>
-      <Col sm="6">
-        <Card className="p-1 mb-2">
-          <Card.Body>
-            <Card.Title>
-              {/* add value icon */}
-              <img
-                className="value-icons"
-                src={value_icons[data.core_value]}
-              />{" "}
-              {data.message}
-            </Card.Title>
-            <p>{data.core_value}</p>
-            <p>
+    <Col sm="6">
+      <Card className="p-1 mb-2 kudo-card">
+        <Card.Body>
+          <Card.Title>
+            {/* add value icon */}
+            {data.message}
+          </Card.Title>
+          <br />
+          <p>
+            <img className="value-icons" src={value_icons[data.core_value]} />{" "}
+            {data.core_value}
+            <span className="ml-4">
               <img
                 className="value-icons"
                 src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
               />{" "}
-              By {data.received_by}
-              {/* <span className="text-warning">#jarvis,#integrations</span>{" "} */}
-              <span className="ml-2">
-                <Badge variant="dark">{moment(data.ts).format()}</Badge>
-              </span>{" "}
-            </p>
-          </Card.Body>
-        </Card>
-      </Col>
-    </>
+              {type == "received"
+                ? `From : ${data.sent_by}`
+                : `To : ${data.received_by}`}
+            </span>
+            {/* <span className="text-warning">#jarvis,#integrations</span>{" "} */}
+            {/* <span className="ml-2">
+              <Badge variant="dark">{moment(data.ts).format()}</Badge>
+            </span>{" "} */}
+          </p>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
@@ -58,7 +58,7 @@ const RecognitionReceived = (props) => {
     <>
       <Row>
         {kudos.map(function (object, i) {
-          return <KudoEle data={object} type />;
+          return <KudoEle data={object} type={type} key={object.id} />;
         })}
       </Row>
     </>

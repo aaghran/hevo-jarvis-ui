@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import Router from "next/router";
 import {
   Container,
   Row,
@@ -20,6 +21,12 @@ export default class Index extends React.Component {
     super(props);
     this.state = {};
   }
+  componentDidMount() {
+    let user = localStorage.getItem("user");
+    if (!user) {
+      Router.push("/");
+    }
+  }
   render() {
     return (
       <Fragment>
@@ -39,15 +46,6 @@ export default class Index extends React.Component {
           <meta property="twitter:title" content="Jarvis" />
           <meta property="twitter:description" content="" />
           <meta property="twitter:image" content="" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KFXF3TG');`,
-            }}
-          ></script>
         </Head>
         {/* <NavBar /> */}
 
@@ -57,11 +55,11 @@ export default class Index extends React.Component {
               <NavBar />
             </Col>
             <Col sm={10} id="page-content-wrapper">
-              <Col sm="12" className="mb-2">
-                <h1 className="mt-2">Jarvis-Your personal bot</h1>
+              <Col sm="12" className="mb-2 p-0">
+                <h1 className="mt-2">Jarvis - Your personal bot</h1>
                 <p>
                   <br />
-                  Some intro
+                  Save time, work better!
                   <br />
                 </p>
 
@@ -73,14 +71,17 @@ export default class Index extends React.Component {
               <Row>
                 <Col sm="12" lg="6" className="mt-2">
                   <Card className="">
-                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3590/premium/3590198.png?token=exp=1630613225~hmac=6d8989e6c1a2fe2a1abb7d7d89a75216" />
+                    <Card.Img
+                      variant="top"
+                      className="img-logo"
+                      src="https://wanderingbong-v2.s3.ap-south-1.amazonaws.com/relaxing.png"
+                    />
                     <Card.Body>
-                      <Card.Title className="p-2">Take a leave</Card.Title>
-                      <Card.Text className="p-2">
-                        Description..
-                        <br />
+                      <Card.Text className="p-2 text-center">
+                        Our leave policy assists employees to balance between
+                        work & personal engagement.
                       </Card.Text>
-                      <Button variant="secondary" href="/leaves" size="lg" block>
+                      <Button variant="primary" href="/leaves" size="lg" block>
                         Leaves &rarr;
                       </Button>
                     </Card.Body>
@@ -88,15 +89,19 @@ export default class Index extends React.Component {
                 </Col>
                 <Col sm="12" lg="6" className="mt-2">
                   <Card className="">
-                  <Card.Img variant="top" className="img-logo" src="https://img-premium.flaticon.com/png/512/3805/premium/3805300.png?token=exp=1630613160~hmac=2dbc86b40952a39190c50a2177efecc0" />
+                    <Card.Img
+                      variant="top"
+                      className="img-logo"
+                      src="https://wanderingbong-v2.s3.ap-south-1.amazonaws.com/applaud.png"
+                    />
                     <Card.Body>
-                      <Card.Title className="p-2">Be rewarded for your contribution to Hevo</Card.Title>
-                      <Card.Text className="p-2">
-                        Description..
+                      <Card.Text className="p-2 text-center">
+                        It's very inexpensive to give a compliment. Go ahead and
+                        appreciate someone.
                         <br />
                       </Card.Text>
                       <Button
-                        variant="secondary"
+                        variant="primary"
                         href="/recognition"
                         size="lg"
                         block
@@ -110,10 +115,6 @@ export default class Index extends React.Component {
             </Col>
           </Row>
         </Container>
-
-        <footer className="cntr-footer">
-          © <a href="http://hevodata.com/" >Team Jarivs @Hevo</a> - 2021
-        </footer>
       </Fragment>
     );
   }

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
+// const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
 
 import {
   Container,
@@ -123,9 +123,6 @@ export default class Index extends React.Component {
           </div>
         </Container>
 
-        <footer className="cntr-footer">
-          © <a href="http://hevodata.com/">Team Jarivs @Hevo</a> - 2021
-        </footer>
       </Fragment>
     );
   }
