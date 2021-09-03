@@ -38,12 +38,16 @@ export default class Leaves extends React.Component {
     getBreaks(user_id)
       .then((response) => response.json())
       .then((leaves) => {
-        this.setState({ leaves });
-        console.log(leaves);
+        let breaks = leaves.filter(function (leave) {
+          return leave.type == "Leave";
+        });
+        breaks = breaks.filter(
+          (leave, index, self) =>
+            index === self.findIndex((t) => t.date === leave.date)
+        );
+        this.setState({ leaves: breaks });
+        console.log(breaks);
       });
-    // console.log(kudos_rcvd);
-    // this.setState({ kudos_all, kudos_rcvd, kudos_given });
-    // return { kudos_all, kudos_rcvd, kudos_given };
   }
   render() {
     let { leaves } = this.state;

@@ -54,6 +54,7 @@ const RecognitionReceived = (props) => {
   // const toggle = () => setIsOpen(!isOpen);
   let type = props.type;
   let kudos = props.kudos;
+  
   return (
     <>
       <Row>

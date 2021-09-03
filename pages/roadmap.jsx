@@ -64,7 +64,48 @@ export default class Recognition extends React.Component {
                 </Col>
               </Row>
               <Row className="">
-                <Col sm="12" className="mb-2"></Col>
+                <Col sm="12" className="mb-2">
+                  <Card>
+                    <Card.Body>
+                      <h3>Integration with Collaboration Tools</h3>
+                      <p>
+                        Just like the Jira usecase, the conversation syncing can
+                        work with any SaaS tool that provides APIs and webhooks.
+                        <br />
+                        CRM tools to cover conversations about leads
+                        <br />
+                        Customer Support tools about tickets created
+                        <br />
+                        Any other project management tools
+                      </p>
+                      <h3>Integration with HRMS Tools</h3>
+                      <p>
+                        Jarvis would sync with tools like Keka, Darwinbox,
+                        XOXOday, Pinerewards, etc to enable services like:
+                        <br />
+                        Leave application and reporting
+                        <br />
+                        Reimbursement logging
+                        <br />
+                        Feedback systems and summary
+                        <br />
+                        Redeeming of points across recognitions
+                      </p>
+                      <h3>Personalized Nudges</h3>
+                      <p>
+                        With all the data coming in from different services, it
+                        makes it easy to set up nudges for all the employees as
+                        a group, or on an individual level:
+                        <br />
+                        Reminders to take a break regularly
+                        <br />
+                        Redeem points after a collection limit
+                        <br />
+                        Unanswered comments or requests from tools like Jira
+                      </p>
+                    </Card.Body>
+                  </Card>
+                </Col>
               </Row>
             </Col>
           </Row>

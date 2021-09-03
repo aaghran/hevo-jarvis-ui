@@ -23,7 +23,7 @@ import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 const columns = [
   {
     dataField: "user_name",
-    text: "Your peers on leave",
+    text: "Your leaves",
     sort: true,
     formatter: nameFormatter,
   },
@@ -42,19 +42,6 @@ const columns = [
 function nameFormatter(cell, row) {
   return <>{row.user_name}</>;
 }
-const expandRow = {
-  onlyOneExpanding: true,
-  renderer: (row) => (
-    <div>
-      <p>{`This Expand row is belong to rowKey ${row.id}`}</p>
-      <p>
-        You can render anything here, also you can add additional data on every
-        row object
-      </p>
-      <p>expandRow.renderer callback will pass the origin row object to you</p>
-    </div>
-  ),
-};
 
 class LeaveTable extends React.Component {
   constructor(props) {
