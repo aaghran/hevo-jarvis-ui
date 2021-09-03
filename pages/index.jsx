@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
+const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
 
 import {
   Container,

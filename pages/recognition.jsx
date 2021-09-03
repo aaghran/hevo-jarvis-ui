@@ -27,180 +27,206 @@ import RecognitionTable from "../components/recognitionTable";
 import RecognitionReceived from "../components/recognitionReceived";
 import RecognitionGallery from "../components/recognitionGallery";
 
-export default class Recognition extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <Fragment>
-        <Head>
-          <title>Jarvis - Rewards and Recognition</title>
-          <meta name="title" content="Jarvis" />
-          <meta name="description" content="" />
+const Recognition = (props) => {
+  let { kudos_all, kudos_rcvd, kudos_given } = props;
+  console.log(props);
+  return (
+    <Fragment>
+      <Head>
+        <title>Jarvis - Rewards and Recognition</title>
+        <meta name="title" content="Jarvis" />
+        <meta name="description" content="" />
 
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="" />
-          <meta property="og:title" content="Jarvis" />
-          <meta property="og:description" content="" />
-          <meta property="og:image" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="Jarvis" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
 
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="" />
-          <meta property="twitter:title" content="Jarvis" />
-          <meta property="twitter:description" content="" />
-          <meta property="twitter:image" content="" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="" />
+        <meta property="twitter:title" content="Jarvis" />
+        <meta property="twitter:description" content="" />
+        <meta property="twitter:image" content="" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KFXF3TG');`,
-            }}
-          ></script>
-        </Head>
-        <Container fluid>
-          <Row className="justify-content-md-between">
-            <Col xs={2} id="sidebar-wrapper">
-              <NavBar />
-            </Col>
-            <Col xs={10} id="page-content-wrapper">
-              <Row className="mb-2">
-                <Col sm="8" className="mb-2">
-                  <h1>Rewards & Recognition</h1>
-                  <br />
-                  <Alert>
-                    <h2>"It's very inexpensive to give a compliment."</h2>
-                  </Alert>
-                </Col>
-                <Col sm="4" className="mb-2">
-                  {/* @TODO - modal with apply leave */}
-                  <Button
-                    variant="danger"
-                    // href="/home"
-                    size="lg"
-                    block
-                  >
-                    Recognize your colleague
-                  </Button>
-                </Col>
-              </Row>
-              <Row>
-                <RecognitionGallery />
-              </Row>
-              <Row className="">
-                {/* </Row>
+          }}
+        ></script>
+      </Head>
+      <Container fluid>
+        <Row className="justify-content-md-between">
+          <Col xs={2} id="sidebar-wrapper">
+            <NavBar />
+          </Col>
+          <Col xs={10} id="page-content-wrapper">
+            <Row className="mb-2">
+              <Col sm="8" className="mb-2">
+                <h1>Rewards & Recognition</h1>
+                <br />
+                <Alert>
+                  <h2>"It's very inexpensive to give a compliment."</h2>
+                </Alert>
+              </Col>
+              <Col sm="4" className="mb-2">
+                {/* @TODO - modal with apply leave */}
+                <Button
+                  variant="danger"
+                  // href="/home"
+                  size="lg"
+                  block
+                >
+                  Recognize your colleague
+                </Button>
+              </Col>
+            </Row>
+            <Row>
+              <RecognitionGallery kudos={kudos_all} />
+            </Row>
+            <Row className="">
+              {/* </Row>
               <Row> */}
-                <Col sm="12">
-                  <div className="p-4 bg-white border rounded">
-                    <Tabs
-                      defaultActiveKey="received"
-                      id="uncontrolled-tab-example"
-                      className=""
+              <Col sm="12">
+                <div className="p-4 bg-white border rounded">
+                  <Tabs
+                    defaultActiveKey="received"
+                    id="uncontrolled-tab-example"
+                    className=""
+                  >
+                    <Tab eventKey="received" title="Received">
+                      <Card>
+                        <Card.Body>
+                          <RecognitionReceived
+                            type="received"
+                            kudos={kudos_rcvd}
+                          />
+                        </Card.Body>
+                      </Card>
+                    </Tab>
+                    <Tab eventKey="given" title="Given">
+                      <Card>
+                        <Card.Body>
+                          {/* <Card.Title>Who's the most recognized!</Card.Title> */}
+                          <RecognitionReceived
+                            type="given"
+                            kudos={kudos_given}
+                          />
+                        </Card.Body>
+                      </Card>
+                    </Tab>
+                    <Tab
+                      eventKey="contact"
+                      title="Claim Rewards (Coming Soon)"
+                      disabled
                     >
-                      <Tab eventKey="received" title="Received">
-                        <Card>
-                          <Card.Body>
-                            <RecognitionReceived type="received" />
-                          </Card.Body>
-                        </Card>
-                      </Tab>
-                      <Tab eventKey="given" title="Given">
-                        <Card>
-                          <Card.Body>
-                            {/* <Card.Title>Who's the most recognized!</Card.Title> */}
-                            <RecognitionReceived type="given" />
-                          </Card.Body>
-                        </Card>
-                      </Tab>
-                      <Tab
-                        eventKey="contact"
-                        title="Claim Rewards (Coming Soon)"
-                        disabled
-                      >
-                        Claim Rewards
-                      </Tab>
-                      <Tab eventKey="about" title="About">
-                        <Card>
-                          <Card.Body>
-                            {/* <Card.Title></Card.Title> */}
-                            <Card.Text className="">
-                              <p>
-                                {/* @TODO - Add our core values with the images here (with a one liner? */}
-                                <h3>Core Values</h3>
-                                <Alert variant="primary">
-                                  <img
-                                    className="value-icons"
-                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png"
-                                  />{" "}
-                                  Build Products that users love
-                                  <br />
-                                  As a product company, our first and foremost
-                                  responsibility is building great products.
-                                </Alert>
+                      Claim Rewards
+                    </Tab>
+                    <Tab eventKey="about" title="About">
+                      <Card>
+                        <Card.Body>
+                          {/* <Card.Title></Card.Title> */}
+                          <Card.Text className="">
+                            <p>
+                              {/* @TODO - Add our core values with the images here (with a one liner? */}
+                              <h3>Core Values</h3>
+                              <Alert variant="primary">
+                                <img
+                                  className="value-icons"
+                                  src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-build-products-that-users-love/c866630d4e4b9444.png"
+                                />{" "}
+                                Build Products that users love
+                                <br />
+                                As a product company, our first and foremost
+                                responsibility is building great products.
+                              </Alert>
 
-                                <Alert variant="info">
-                                  <img
-                                    className="value-icons"
-                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-audacious-goals/71d9ea8cffdaa1aa.png"
-                                  />{" "}
-                                  Have audacious goals and a keen desire to
-                                  achieve them.
-                                  <br />
-                                  Thinking Big and having large goals is the
-                                  first step to achieving them.
-                                </Alert>
+                              <Alert variant="info">
+                                <img
+                                  className="value-icons"
+                                  src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-audacious-goals/71d9ea8cffdaa1aa.png"
+                                />{" "}
+                                Have audacious goals and a keen desire to
+                                achieve them.
+                                <br />
+                                Thinking Big and having large goals is the first
+                                step to achieving them.
+                              </Alert>
 
-                                <Alert variant="warning">
-                                  <img
-                                    className="value-icons"
-                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-the-best-at-what-you-do/75f9baba650c1ab6.png"
-                                  />{" "}
-                                  Aspire to be the best at what you do.
-                                  <br />
-                                  Mediocrity is like gravity; it draws
-                                  everything closer to itself, even the things
-                                  that are not mediocre yet.
-                                </Alert>
+                              <Alert variant="warning">
+                                <img
+                                  className="value-icons"
+                                  src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-the-best-at-what-you-do/75f9baba650c1ab6.png"
+                                />{" "}
+                                Aspire to be the best at what you do.
+                                <br />
+                                Mediocrity is like gravity; it draws everything
+                                closer to itself, even the things that are not
+                                mediocre yet.
+                              </Alert>
 
-                                <Alert variant="danger">
-                                  <img
-                                    className="value-icons"
-                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-honest/aa1300571d27f468.png"
-                                  />{" "}
-                                  Be honest with your work and your teammates.
-                                  <br />
-                                  As we push to achieve greater results, it is
-                                  important to remain honest with ourselves and
-                                  others.
-                                </Alert>
+                              <Alert variant="danger">
+                                <img
+                                  className="value-icons"
+                                  src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-be-honest/aa1300571d27f468.png"
+                                />{" "}
+                                Be honest with your work and your teammates.
+                                <br />
+                                As we push to achieve greater results, it is
+                                important to remain honest with ourselves and
+                                others.
+                              </Alert>
 
-                                <Alert variant="success">
-                                  <img
-                                    className="value-icons"
-                                    src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-empathy/996ec09eb7d0c131.png"
-                                  />{" "}
-                                  Have empathy for your coworkers
-                                  <br />
-                                  In a team sport, winning requires working with
-                                  each other more than beating the opponent.
-                                </Alert>
-                              </p>
-                            </Card.Text>
-                          </Card.Body>
-                        </Card>
-                      </Tab>
-                    </Tabs>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+                              <Alert variant="success">
+                                <img
+                                  className="value-icons"
+                                  src="https://emoji.slack-edge.com/T1ZV74Y7N/core-values-have-empathy/996ec09eb7d0c131.png"
+                                />{" "}
+                                Have empathy for your coworkers
+                                <br />
+                                In a team sport, winning requires working with
+                                each other more than beating the opponent.
+                              </Alert>
+                            </p>
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Tab>
+                  </Tabs>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </Fragment>
+  );
+};
 
-      </Fragment>
-    );
-  }
-}
+Recognition.getInitialProps = async ({ req }) => {
+  // let user = localStorage.getItem("user");
+  // let user_id = user.substring(0, user.lastIndexOf("@"));
+  let user_id = "tariq.iqbal";
+  const res_1 = await fetch("https://b4c7-61-2-23-86.ngrok.io/applaud");
+  const kudos_all = await res_1.json();
+  // console.log(kudos_all);
+
+  const res_2 = await fetch(
+    `https://b4c7-61-2-23-86.ngrok.io/sent_applaud?user_id=${user_id}`
+  );
+  const kudos_given = await res_2.json();
+  // console.log(kudos_given);
+
+  const res_3 = await fetch(
+    `https://b4c7-61-2-23-86.ngrok.io/received_applaud?user_id=${user_id}`
+  );
+  const kudos_rcvd = await res_3.json();
+  // console.log(kudos_rcvd);
+
+  return { kudos_all, kudos_rcvd, kudos_given };
+};
+
+export default Recognition;

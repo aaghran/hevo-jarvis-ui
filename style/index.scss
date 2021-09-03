@@ -70,11 +70,10 @@ body {
 
 .login-logo {
   height: 40%;
-    width: 40%;
-    margin: 0 auto;
-    margin-top: 10px;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 10px;
 }
-
 
 .sidebar {
   // position: fixed;
@@ -84,18 +83,18 @@ body {
   min-height: 100vh !important;
   z-index: 100;
   padding: 48px 0 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   margin: 0 !important;
 }
-#sidebar-wrapper{
+#sidebar-wrapper {
   min-height: 100vh !important;
   width: 100vw;
   padding: 0 !important;
   margin-left: -1rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
 }
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
@@ -110,13 +109,13 @@ body {
 }
 
 .recognition-slider {
-  .carousel{
+  .carousel {
     margin-top: 50px;
   }
-  .carousel-inner{
+  .carousel-inner {
     height: 200px;
   }
-  .carousel-caption{
+  .carousel-caption {
     color: black;
     top: 50%;
   }
@@ -126,5 +125,5 @@ body {
 }
 
 .value-icons {
-  width: 25px;
+  width: 25px !important;
 }

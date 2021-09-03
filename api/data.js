@@ -1,7 +1,7 @@
 import fetch from "isomorphic-fetch";
 
-export function getStates() {
-  return fetch("https://cdn-api.co-vin.in/api/v2/admin/location/states", {
+export function getApplauds() {
+  return fetch("https://b4c7-61-2-23-86.ngrok.io/applaud", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -10,9 +10,9 @@ export function getStates() {
   });
 }
 
-export function getDistricts(district_id) {
+export function getSentApplaudById(user_id) {
   return fetch(
-    `https://cdn-api.co-vin.in/api/v2/admin/location/districts/${district_id}`,
+    `https://b4c7-61-2-23-86.ngrok.io/sent_applaud?user_id=${user_id}`,
     {
       method: "GET",
       headers: {
@@ -23,9 +23,9 @@ export function getDistricts(district_id) {
   );
 }
 
-export function getCalendarByDistrict(district, date) {
+export function getRecApplaudById(user_id) {
   return fetch(
-    `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${date}`,
+    `https://b4c7-61-2-23-86.ngrok.io/received_applaud?user_id=${user_id}`,
     {
       method: "GET",
       headers: {
